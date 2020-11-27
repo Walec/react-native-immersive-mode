@@ -1,6 +1,6 @@
 
 {
-  "name": "react-native-immersive-mode",
+  "name": "@kichiyaki/react-native-immersive-mode",
   "version": "1.0.0",
   "description": "Set Immersive mode for Android (hide status bar or navigation bar bottom)",
   "main": "index.js",
