@@ -1,16 +1,15 @@
 
 # react-native-immersive-mode
-[![npm version](https://badge.fury.io/js/react-native-immersive-mode.svg)](https://badge.fury.io/js/react-native-immersive-mode)
 
 ## Getting started
 
-`$ npm install react-native-immersive-mode --save`
+`$ npm install @kichiyaki/react-native-immersive-mode --save`
 
 ### Mostly automatic installation
 
 Note. react-native `>0.60` no need to link
 
-`$ react-native link react-native-immersive-mode`
+`$ react-native link @kichiyaki/react-native-immersive-mode`
 
 ### Manual installation
 
