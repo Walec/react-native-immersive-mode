@@ -91,10 +91,6 @@ change status and navigation bar mode
 | mode | string | [Bar Mode](#bar-mode) |
 
 ```javascript
-// Deprecated
-ImmersiveMode.setImmersive(ImmersiveMode.Normal);
-
-// Use this instead
 ImmersiveMode.setBarMode('Normal');
 ```
 
