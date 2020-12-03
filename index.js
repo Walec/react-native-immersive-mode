@@ -19,16 +19,6 @@ const ImmersiveMode = {
     RNImmersiveMode.fullLayout(full);
   },
 
-  /**
-   * @deprecated
-   */
-  setImmersive(mode) {
-    if (!canUseThisModule()) {
-      return;
-    }
-    RNImmersiveMode.setImmersive(mode);
-  },
-
   setBarMode(mode) {
     if (!canUseThisModule()) {
       return;

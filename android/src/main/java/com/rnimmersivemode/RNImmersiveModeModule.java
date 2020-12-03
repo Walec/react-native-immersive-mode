@@ -50,11 +50,11 @@ public class RNImmersiveModeModule extends ReactContextBaseJavaModule {
         final Map<String, Object> constants = new HashMap<>();
 
         //mode
-        constants.put("Normal", ImmersiveMode.Normal);
-        constants.put("Full", ImmersiveMode.Full);
-        constants.put("FullSticky", ImmersiveMode.FullSticky);
-        constants.put("Bottom", ImmersiveMode.Bottom);
-        constants.put("BottomSticky", ImmersiveMode.BottomSticky);
+        constants.put("Normal", BarMode.Normal);
+        constants.put("Full", BarMode.Full);
+        constants.put("FullSticky", BarMode.FullSticky);
+        constants.put("Bottom", BarMode.Bottom);
+        constants.put("BottomSticky", BarMode.BottomSticky);
 
         //event
         constants.put("OnSystemUiVisibilityChange", ImmersiveEvent.OnSystemUiVisibilityChange);
@@ -72,43 +72,6 @@ public class RNImmersiveModeModule extends ReactContextBaseJavaModule {
             // set layout normal (not including layout navigation bar on bottom)
             this.currentLayout = View.VISIBLE
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-        }
-
-        this.setUiOnUiThread();
-    }
-
-    @Deprecated
-    @ReactMethod
-    public void setImmersive(int immersive) {
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            Log.w(ModuleName, "Sdk Version must be >= " + Build.VERSION_CODES.KITKAT);
-            return;
-        }
-
-        switch (immersive) {
-            case ImmersiveMode.Normal:
-                this.currentMode = View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-                break;
-            case ImmersiveMode.Full:
-                this.currentMode = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE;
-                break;
-            case ImmersiveMode.FullSticky:
-                this.currentMode = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-                break;
-            case ImmersiveMode.Bottom:
-                this.currentMode = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE;
-                break;
-            case ImmersiveMode.BottomSticky:
-                this.currentMode = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-                break;
-            default:
         }
 
         this.setUiOnUiThread();
