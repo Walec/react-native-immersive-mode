@@ -1,6 +1,6 @@
 import { EmitterSubscription } from 'react-native';
 
-type BarModeT = {
+export type BarMode = {
   Normal: 'Normal';
   Full: 'Full';
   FullSticky: 'FullSticky';
@@ -8,27 +8,27 @@ type BarModeT = {
   BottomSticky: 'BottomSticky';
 };
 
-type BarVisibilityT = {
+export type BarVisibility = {
   statusBar: boolean;
   navigationBottomBar: boolean;
 };
 
-type ImmersiveBarStyleT = 'Dark' | 'Light';
-type ImmersiveBarModeT =
-  | BarModeT['Normal']
-  | BarModeT['Full']
-  | BarModeT['FullSticky']
-  | BarModeT['Bottom']
-  | BarModeT['BottomSticky'];
+export type ImmersiveBarStyle = 'Dark' | 'Light';
+export type ImmersiveBarMode =
+  | BarMode['Normal']
+  | BarMode['Full']
+  | BarMode['FullSticky']
+  | BarMode['Bottom']
+  | BarMode['BottomSticky'];
 
-interface ImmersiveModeStatic extends BarModeT {
+interface ImmersiveModeStatic extends BarMode {
   fullLayout(full: boolean): void;
 
   /**
    * Set system ui mode.
    * @param mode
    */
-  setBarMode(mode: ImmersiveBarModeT): void;
+  setBarMode(mode: ImmersiveBarMode): void;
 
   /**
    * Set color of system bar.
@@ -44,7 +44,7 @@ interface ImmersiveModeStatic extends BarModeT {
    *
    * @param style
    */
-  setBarStyle(style: ImmersiveBarStyleT): void;
+  setBarStyle(style: ImmersiveBarStyle): void;
 
   /**
    * System bar background color is transparent 50%.
@@ -55,7 +55,7 @@ interface ImmersiveModeStatic extends BarModeT {
   setBarTranslucent(enable: boolean): void;
 
   addEventListener(
-    callback: (viisibility: BarVisibilityT) => void
+    callback: (viisibility: BarVisibility) => void
   ): EmitterSubscription;
 }
 
